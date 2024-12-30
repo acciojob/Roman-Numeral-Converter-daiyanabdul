@@ -10,30 +10,15 @@ function convertToRoman(num) {
     };
 
   //your code here
-	 let roman = "";
-    let keys = Object.keys(obj);
-
-    for (let i = 0; i < keys.length; i++) {
-        let [symbol, value] = obj[keys[i]];
-
-        // Check for subtraction cases (like IV, IX, etc.)
-        if (i % 2 === 0 && i + 2 < keys.length) {
-            let [nextSymbol, nextValue] = obj[keys[i + 2]];
-            if (num >= value - nextValue) {
-                roman += nextSymbol + symbol;
-                num -= (value - nextValue);
-                continue;
-            }
-        }
-
-        // Add the symbols to the result while reducing the number
-        while (num >= value) {
-            roman += symbol;
-            num -= value;
-        }
-    }
-
-    return roman;
+	 let romanNumerals = '';
+    for(let i=0;i<obj.length;i++){
+		const[symbol,value]=obj[i];
+		while (num>=value) {
+			romanNumerals+=symbol;
+			num-=value;
+		}
+	}
+	return romanNumerals;
 }
 
 // You can test your code by running the above function and printing it to console by pressing the run button at the top. To run it with input 36, uncomment the following line
