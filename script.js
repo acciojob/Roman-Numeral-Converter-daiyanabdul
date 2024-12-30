@@ -1,4 +1,5 @@
 function convertToRoman(num) {
+	if(num===0) return'';
   	const obj = [
       ['M',1000], 
       ['D', 500], 
